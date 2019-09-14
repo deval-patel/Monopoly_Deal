@@ -36,3 +36,44 @@ class MoneyCard(Card):
                            ". You can put it in the bank and use it to pay people rent. "
         self.name = "$" + str(money) + " Million Money Card"
 
+
+class PropertyCard(Card):
+    """
+    A property card, has the value, amount required to make a set, and colour.
+    ===Private Attributes===
+    set_amount: Number of unique cards required to make a set
+    colour: Colour of the card
+    """
+    set_amount: int
+    colour: str
+
+    def __init__(self, money, colour, set_amount):
+        self.money_value = money
+        self.colour = colour
+        self.set_amount = set_amount
+        self.description = "This " + colour + "Property Card has a money value of " + str(money) + \
+                           ". You can put it in the bank and use it to pay people rent or" \
+                           "place it in your field as a Property Card. You need " + str(set_amount) +\
+                           " number of " + colour + "cards to complete a set!"
+
+        self.name = colour + " Property Card"
+
+
+class ActionCard(Card):
+    """
+    A action card does a certain action when played into the field by a player onto another player.
+    There are a few different types of ActionCards which do their unique effect.
+    """
+
+
+
+
+
+
+
+
+
+
+
+
+

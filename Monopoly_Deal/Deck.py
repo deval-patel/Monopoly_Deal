@@ -1,8 +1,10 @@
 import math
+import random
 import typing
-import Card
+from Card import *
+from collections import deque
 """
-This class generates a new Deck in a random order and contains methods to manipulate the deck. 
+This class holds a set of cards as a Deck.  
 """
 
 
@@ -12,10 +14,26 @@ class Deck:
     cards:
             The cards in this deck at this time.
     """
-    cards: list[Card]
-    def __init__(self) -> None:
-        self.cards = []
+    cards: deque[Card]
 
+    def __init__(self) -> None:
+        self.cards = deque()
+
+    def shuffle(self) -> None:
+        for i in range(1000):
+            num1 = random.randint(0, len(self.cards))
+            num2 = random.randint(0, len(self.cards))
+            self.cards[num1], self.cards[num2] = self.cards[num2], self.cards[num1]
+
+    def draw(self) -> Card:
+        return self.cards.pop()
+
+    # TODO: Make generate method which initializes the Deck for the first time.
+    def generate(self) -> None:
+        pass
+
+    def add(self, item: Card):
+        self.cards.append(item)
 
 
 
